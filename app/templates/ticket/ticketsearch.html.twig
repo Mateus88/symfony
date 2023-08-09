@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block content %}
+        <div class="row search">
+            <div class="col-md-4">
+                <select name="sourcecity" class="form-select sourcecity" aria-label="Default select example" required>
+                    <option selected value=''>Choose from city</option>
+                    {% for city in cities %}
+                        <option value="{{city.id}}">{{city.name}}</option>
+                    {% endfor %}
+                </select>
+                <span class="text-red source-city-error"></span>
+            </div>
+            <div class="col-md-4">
+                <div class="date" data-provide="datepicker">
+                    <input type="text" class="form-control" id="datevalue" autocomplete="off">
+                    <span class="text-red date-error"></span>
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary btn-search url-info" data-url="{{ path('ticket_search_api')}}" data-url-more-details="{{ path('ticket_info_hours')}}" type="button">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="row tableresult d-none">
+            <div class="col-md-12">
+                <table id="tickets-info" class="display" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>Departure city</th>
+                        <th>Arrival city</th>
+                        <th>Schedules</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

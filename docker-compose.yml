@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  app:
+    build: docker/app
+    volumes:
+      - ${VOLUME_APP}:/var/www/html/
+    environment:
+      - ENV=dev
+      - TZ=Europe/Lisbon
+    ports:
+      - "${PORT_APP}:80"
+  mysql:
+    image: mysql
+    command: ["--default-authentication-plugin=mysql_native_password"]
+    ports:
+        - "${PORT_MYSQL}:3306"
+    environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}

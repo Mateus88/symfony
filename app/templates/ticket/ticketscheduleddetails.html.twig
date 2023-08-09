@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% block content %}
+        <div class="row tickets-info-hours">
+        <div class="col-md-12">
+            <table id="tickets-info-hours" class="display ticket-info" style="width:100%" data-datetravel={{date}}
+                data-url="{{ path('ticket_search_api_details', { 'sourceCity' : sourceCity , 'destinationCity' : destinationCity})}}">
+                <thead>
+                    <tr>
+                    <th>Departure city</th>
+                    <th>Arrival city</th>
+                    <th>Depature Time</th>
+                    <th>Arrival Time</th>
+                    <th>Price</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        </div>
+    {% endblock %}
+{% endblock %}

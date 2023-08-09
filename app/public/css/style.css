@@ -1,0 +1,11 @@
+.margin-bottom-5perc {
+    margin-bottom: 5%;
+}
+
+.text-red {
+    color : red;
+}
+
+.border-input-error {
+    border : 2px solid red;
+}
